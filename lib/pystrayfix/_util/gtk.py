@@ -25,7 +25,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import GLib, GObject, Gtk
 
-from pystray import _base
+from pystrayfix import _base
 
 from . import notify_dbus
 

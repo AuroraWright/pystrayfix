@@ -1,10 +1,8 @@
-pystray Package Documentation
-=============================
+pystrayfix
+==========
 
-This library allows you to create a *system tray icon*.
+This is just pystray git with this PR applied:
 
-Supported platforms are *Linux* under *Xorg*, *GNOME* and *Ubuntu*, *macOS*
-and *Windows*.
+* https://github.com/moses-palmer/pystray/pull/131
 
-See `here <https://pystray.readthedocs.io/en/latest/>`_ for the full
-documentation.
+All credit and copyright for the code goes to the original developers.
