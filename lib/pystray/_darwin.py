@@ -159,17 +159,19 @@ class Icon(_base.Icon):
         """
         thickness = self._status_bar.thickness()
         size = (int(thickness), int(thickness))
+        retina_size = thickness * 3
+        pixel_size = (int(retina_size), int(retina_size))
         if self._icon_image and self._icon_image.size() == size:
             return
 
-        if self._icon.size == size:
+        if self._icon.size == pixel_size:
             source = self._icon
         else:
             source = PIL.Image.new(
                 'RGBA',
-                size)
+                pixel_size)
             source.paste(self._icon.resize(
-                size,
+                pixel_size,
                 PIL.Image.LANCZOS))
 
         # Convert the PIL image to an NSImage
