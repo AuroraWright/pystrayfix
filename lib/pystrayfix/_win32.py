@@ -18,6 +18,7 @@
 import ctypes
 import queue
 import threading
+import sys
 
 from ctypes import wintypes
 
