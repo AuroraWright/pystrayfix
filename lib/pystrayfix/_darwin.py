@@ -18,12 +18,14 @@
 import io
 import signal
 import subprocess
+import queue
+import sys
 
 import AppKit
 import Foundation
 import objc
 import PIL
-import  PyObjCTools.MachSignals
+import PyObjCTools.MachSignals
 
 from . import _base
 
@@ -62,6 +64,8 @@ class Icon(_base.Icon):
 
         self._status_item.button().setTarget_(self._delegate)
         self._status_item.button().setAction_(self._ACTION_SELECTOR)
+
+        self._queue = queue.Queue()
 
     def _show(self):
         self._assert_image()
@@ -106,7 +110,7 @@ class Icon(_base.Icon):
 
         try:
             self._app.run()
-        except BaseException():
+        except BaseException:
             self._queue.put(sys.exc_info())
         finally:
             if PyObjCTools.MachSignals.getsignal(signal.SIGINT) == sigint:
